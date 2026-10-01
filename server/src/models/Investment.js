@@ -11,6 +11,7 @@ const investmentSchema = new mongoose.Schema(
       min: 0,
       validate: { validator: Number.isInteger, message: 'amount must be an integer number of paise' }
     },
+    ownershipPct: { type: Number, required: true, min: 0, max: 100 },
     status: { type: String, enum: ['ACTIVE', 'EXITED', 'REFUNDED'], default: 'ACTIVE', index: true },
     payoutAmount: {
       type: Number,
