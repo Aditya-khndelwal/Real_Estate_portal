@@ -7,6 +7,8 @@ const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 const propertyRoutes = require('./routes/propertyRoutes');
 const adminPropertyRoutes = require('./routes/adminPropertyRoutes');
+const investmentRoutes = require('./routes/investmentRoutes');
+const walletRoutes = require('./routes/walletRoutes');
 
 require('./models/User');
 require('./models/Property');
@@ -25,6 +27,8 @@ app.use(express.json());
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/properties', propertyRoutes);
 app.use('/api/v1/admin', adminPropertyRoutes);
+app.use('/api/v1/investments', investmentRoutes);
+app.use('/api/v1/wallet', walletRoutes);
 
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
