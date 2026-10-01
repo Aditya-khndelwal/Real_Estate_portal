@@ -7,10 +7,13 @@ import { Badge, Button, Card, Input } from '../components/ui';
 const walletBalance = 12500000;
 
 export function Checkout({ id }) {
-  const property = properties.find((item) => item.id === id) || properties[0];
-  const available = property.totalUnits - property.unitsSold;
-  const [units, setUnits] = useState(property.minUnits);
+  const property = properties.find((item) => item.id === id);
+  const [units, setUnits] = useState(property?.minUnits || 1);
   const [complete, setComplete] = useState(false);
+
+  if (!property) return <main className="mx-auto flex min-h-[calc(100vh-72px)] max-w-3xl items-center justify-center px-5 py-16"><Card className="w-full p-10 text-center"><h1 className="font-display text-2xl font-bold text-ink">No investment opportunities available</h1><p className="mt-2 text-sm text-slate-500">New properties will appear here when they are published.</p><Button className="mt-6" onClick={() => { window.location.href = '/properties'; }}>Back to marketplace</Button></Card></main>;
+
+  const available = property.totalUnits - property.unitsSold;
   const total = units * property.unitPrice;
   const ownership = (units / property.totalUnits) * 100;
   const exceedsWallet = total > walletBalance;

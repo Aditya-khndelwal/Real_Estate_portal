@@ -10,9 +10,12 @@ import { AdminUsers } from './pages/admin/AdminUsers';
 import { BrokerDashboard } from './pages/broker/BrokerDashboard';
 import { BrokerProperties } from './pages/broker/BrokerProperties';
 import { BrokerListingWizard } from './pages/broker/BrokerListingWizard';
+import { Auth } from './pages/Auth';
 
 export default function App() {
   const path = window.location.pathname;
+
+  if (path === '/' || path === '/auth') return <Auth />;
 
   // Admin routes (no SiteHeader — uses PanelLayout with sidebar)
   if (path === '/admin/dashboard') return <AdminDashboard />;

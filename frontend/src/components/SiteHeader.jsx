@@ -7,7 +7,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 lg:px-8">
         <a href="/properties" className="flex items-center gap-2.5 text-ink">
           <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-ink text-white"><Building2 size={18} /></span>
-          <span className="font-display text-lg font-bold tracking-tight">equity<span className="text-forest">house</span></span>
+          <span className="font-display text-lg font-bold tracking-tight">zameen<span className="text-forest">Daar</span><span className="text-slate-400">.com</span></span>
         </a>
         <nav className="hidden items-center gap-8 text-sm font-semibold text-slate-500 md:flex">
           <a href="/properties" className="text-ink">Marketplace</a>
@@ -17,8 +17,8 @@ export function SiteHeader() {
           <a href="/broker/dashboard" className="flex items-center gap-1 hover:text-ink"><Briefcase size={14} /> Broker</a>
         </nav>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" className="hidden sm:inline-flex">Sign in</Button>
-          <Button className="hidden sm:inline-flex"><UserRound size={15} /> Open account</Button>
+          <Button variant="ghost" className="hidden sm:inline-flex" onClick={() => { window.location.href = '/auth'; }}>Sign in</Button>
+          <Button className="hidden sm:inline-flex" onClick={() => { window.location.href = '/auth?mode=signup'; }}><UserRound size={15} /> Open account</Button>
           <button className="rounded-lg p-2 text-ink md:hidden" aria-label="Open menu"><Menu size={21} /></button>
         </div>
       </div>

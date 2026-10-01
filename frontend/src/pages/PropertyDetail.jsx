@@ -5,9 +5,12 @@ import { formatINR, formatPercent } from '../lib/format';
 import { Badge, Button, Card, Input } from '../components/ui';
 
 export function PropertyDetail({ id }) {
-  const property = properties.find((item) => item.id === id) || properties[0];
-  const [amount, setAmount] = useState(String(property.unitPrice / 100));
+  const property = properties.find((item) => item.id === id);
+  const [amount, setAmount] = useState(String(property?.unitPrice ? property.unitPrice / 100 : 0));
   const [years, setYears] = useState(3);
+
+  if (!property) return <main className="mx-auto flex min-h-[calc(100vh-72px)] max-w-3xl items-center justify-center px-5 py-16"><Card className="w-full p-10 text-center"><h1 className="font-display text-2xl font-bold text-ink">Property not found</h1><p className="mt-2 text-sm text-slate-500">This property is no longer available.</p><Button className="mt-6" onClick={() => { window.location.href = '/properties'; }}>Back to marketplace</Button></Card></main>;
+
   const amountPaise = Math.max(Number(amount || 0) * 100, 0);
   const ownership = property.valuation ? (amountPaise / property.valuation) * 100 : 0;
   const projectedValue = amountPaise * Math.pow(1 + (property.expectedAppreciationPct || 0) / 100, years);

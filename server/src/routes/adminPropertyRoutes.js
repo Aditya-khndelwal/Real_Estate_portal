@@ -10,7 +10,7 @@ const { authenticate, authorize } = require('../middlewares/auth');
 
 const router = express.Router();
 
-// All routes require ADMIN authentication and authorization
+
 router.use(authenticate);
 router.use(authorize('ADMIN'));
 

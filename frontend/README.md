@@ -1,4 +1,4 @@
-# EquityHouse Stage 7
+# zameenDaar.com Stage 7
 
 Vite + React + Tailwind implementation of the Fractional Real Estate Marketplace and Property Detail UI.
 

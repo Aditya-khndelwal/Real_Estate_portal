@@ -27,7 +27,7 @@ export function AdminSidebar({ role = 'admin' }) {
           <Building2 size={18} />
         </span>
         <span className="font-display text-lg font-bold tracking-tight text-ink">
-          equity<span className="text-forest">house</span>
+          zameen<span className="text-forest">Daar</span><span className="text-slate-400">.com</span>
         </span>
       </div>
 

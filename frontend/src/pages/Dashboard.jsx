@@ -3,15 +3,13 @@ import { properties } from '../data/properties';
 import { formatINR, formatPercent } from '../lib/format';
 import { Badge, Button, Card } from '../components/ui';
 
-const holdings = [
-  { propertyId: 'bandra-skyline', units: 3, invested: 30000000, currentValue: 33720000, roi: 12.4, status: 'ACTIVE' },
-  { propertyId: 'alibaug-villas', units: 2, invested: 35000000, currentValue: 38675000, roi: 10.5, status: 'ACTIVE' },
-  { propertyId: 'koramangala-office', units: 2, invested: 17000000, currentValue: 19380000, roi: 14.0, status: 'FUNDED' }
-];
+const holdings = [];
 
-const walletBalance = 12500000;
+const walletBalance = 0;
 
 export function Dashboard() {
+  if (!holdings.length) return <main className="mx-auto max-w-7xl px-5 pb-20 pt-10 lg:px-8"><EmptyPortfolio /></main>;
+
   const totalInvested = holdings.reduce((sum, holding) => sum + holding.invested, 0);
   const currentValue = holdings.reduce((sum, holding) => sum + holding.currentValue, 0);
   const returns = currentValue - totalInvested;
