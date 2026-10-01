@@ -22,6 +22,10 @@ app.use(express.json());
 
 app.use('/api/v1/auth', authRoutes);
 
+app.get('/', (req, res) => {
+  res.json({ message: 'Real Estate Portal API is running' });
+});
+
 app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
